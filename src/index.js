@@ -1,7 +1,11 @@
-var Post = require('./post/post.model');
-var express = require('express');
-var app = express();
+const Post = require('./post/post.model');
+const express = require('express');
+const app = express();
 var posts = [];
+const port = 3000;
+const bodyParser = require('body-parser')
+
+app.use(bodyParser.json())
 
 var addPost = function(post) {
   posts.push(post);
@@ -56,7 +60,7 @@ app.get('/posts', function(req, res) {
   getPosts()
     .then((posts) => {
       res
-        .status(201)
+        .status(200)
         .json({
           payload: posts
         })
@@ -99,5 +103,7 @@ app.delete('/posts/:postId', function(req, res) {
         .json({ error });
     })
 });
+
+app.listen(port)
 
 module.exports = app;

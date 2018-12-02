@@ -29,6 +29,7 @@ describe('App', () => {
   it('gets post', (done) => {
     request(app)
       .get('/posts/81d18e4a-45dd-4bcf-b79b-2abd8b932663')
+      .expect(200)
       .end((err, res) => {
         expect(res.body).toEqual({
           payload: {
@@ -44,6 +45,7 @@ describe('App', () => {
   it('gets posts', (done) => {
     request(app)
       .get('/posts')
+      .expect(200)
       .end((err, res) => {
         expect(res.body).toEqual({
           payload: [{

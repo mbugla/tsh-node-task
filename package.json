@@ -14,6 +14,7 @@
   "license": "MIT",
   "homepage": "https://bitbucket.org/thesoftwarehouse/node-recruitement-example#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "uuid": "^3.2.1"
   },
